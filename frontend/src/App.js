@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router"
-import PrimaryHome from "./PrimaryHome/PrimaryHome";
+import PrimaryHome from "./pages/PrimaryHome/PrimaryHome.jsx";
 
 function App() {
   return (

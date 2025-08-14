@@ -1,0 +1,24 @@
+.profile-header {
+  text-align: center;
+}
+
+.profile-header h2{
+    font-size: 18px;
+}
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.subtitle, .location {
+  color: var(--color-text-primary);
+  font-size: 16px;
+  margin: 4px 0;
+  font-weight: 500;
+}
+.location-icon{
+    color: var(--color-text-primary);
+}
