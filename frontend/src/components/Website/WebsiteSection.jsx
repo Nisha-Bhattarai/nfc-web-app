@@ -3,7 +3,7 @@ import "./WebsiteSection.css";
 import WebsiteLink from "./WebsiteLink";
 
 const websites = [
-  { url: "https://lunexacapital.com", label: "lunexacapital.com" },
+  { url: "https://lunexacapital.com", label: "lunexacapital.commmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" },
   { url: "https://abc.com/lunexacapital", label: "abc.com/lunexacapital" },
 ];
 

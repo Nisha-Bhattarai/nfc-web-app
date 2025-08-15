@@ -5,7 +5,7 @@ import { FaLink } from "react-icons/fa";
 const WebsiteLink = ({ url, label }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="website-link">
-      <FaLink />
+      <FaLink className="icon" />
       <p>{label}</p>
     </a>
   );

@@ -8,6 +8,8 @@
   justify-content: center;
   gap: 35px;
   margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center; 
 }
 .social-section {
   margin: 20px 0;
