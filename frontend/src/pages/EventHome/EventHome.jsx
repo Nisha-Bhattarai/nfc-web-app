@@ -11,10 +11,12 @@ import UpcomingEvents from '../../components/Event/UpcomingEvents'
 import OngoingEvents from '../../components/Event/OngoingEvents'
 import Skills from '../../components/Skills/Skills'
 import RelevantCertifications from '../../components/RelevantCertifications/RelevantCertifications'
+import ContactPermissionModal from '../../components/ContactPermissionModal/ContactPermissionModal'
 
 const EventHome = () => {
   return (
     <div className='profile-container'>
+      <ContactPermissionModal />
       <Header />
       <div className="button-group">
         <Button icon={FaDownload} label="Save Contact" onClick={() => alert("Saved!")} />
