@@ -10,10 +10,10 @@ const images = [
   "/images/image6.jpg",
 ];
 
-const LightboxGallerySection = () => {
+const LightboxGallerySection = ({title}) => {
   return (
     <div>
-      <LightboxGallery images={images} title="GALLERY" />
+      <LightboxGallery images={images} title={title} />
     </div>
   );
 };

@@ -10,6 +10,7 @@ import LightboxGallerySection from '../../components/LightboxGallery/LightboxGal
 import UpcomingEvents from '../../components/Event/UpcomingEvents'
 import OngoingEvents from '../../components/Event/OngoingEvents'
 import Skills from '../../components/Skills/Skills'
+import RelevantCertifications from '../../components/RelevantCertifications/RelevantCertifications'
 
 const EventHome = () => {
   return (
@@ -25,7 +26,15 @@ const EventHome = () => {
       <OngoingEvents />
       <UpcomingEvents />
       <Skills />
-      <LightboxGallerySection />
+      <RelevantCertifications
+      title="RELEVANT CERTIFICATIONS"
+      certifications={[
+        "Certified Financial Planner (CFP®)",
+        "Security Guard License",
+        "First Aid Certificate"
+      ]}
+    />
+      <LightboxGallerySection  title="EVENT GALLERY"/>
     </div>
   )
 }

@@ -21,7 +21,7 @@ const PrimaryHome = () => {
       <About />
       <SocialSection />
       <WebsiteSection />
-      <LightboxGallerySection />
+      <LightboxGallerySection title="GALLERY" />
     </div>
   )
 }

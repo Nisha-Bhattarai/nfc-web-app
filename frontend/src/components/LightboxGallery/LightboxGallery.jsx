@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const LightboxGallery = ({ images = [], title = 'Gallery' }) => {
+const LightboxGallery = ({ images = [], title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [index, setIndex] = useState(0);
 

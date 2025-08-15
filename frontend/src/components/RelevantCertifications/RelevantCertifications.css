@@ -1,0 +1,28 @@
+.rc-container{
+    margin: 20px 0;
+}
+.rc-title{
+    text-align: center;
+}
+.rc-box{
+    display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 8px;
+  background: #f4f4f4;
+  margin: 8px auto;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 0.9rem;
+  color: #333;
+  text-decoration: none;
+}
+.rc-icon{
+    flex: 0 0 30px;
+    font-size: 24px;
+}
+.rc-text{
+    font-size: 16px;
+}
