@@ -9,6 +9,7 @@ import WebsiteSection from '../../components/Website/WebsiteSection'
 import LightboxGallerySection from '../../components/LightboxGallery/LightboxGallerySection'
 import UpcomingEvents from '../../components/Event/UpcomingEvents'
 import OngoingEvents from '../../components/Event/OngoingEvents'
+import Skills from '../../components/Skills/Skills'
 
 const EventHome = () => {
   return (
@@ -23,6 +24,7 @@ const EventHome = () => {
       <WebsiteSection />
       <OngoingEvents />
       <UpcomingEvents />
+      <Skills />
       <LightboxGallerySection />
     </div>
   )
