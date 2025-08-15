@@ -1,0 +1,78 @@
+.event-card-container{
+    margin: 16px 0;
+    padding: 16px;
+    background-color: var(--color-secondary);
+    border-radius: 18px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.calendar{
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+.month{
+    background-color: var(--color-secondary);
+    border-radius: 18px 18px 0 0;
+    padding: 16px 30px;
+    font-size: 16px;
+    color: var(--color-text-secondary);
+}
+.date{
+    color: var(--color-text-secondary);
+    font-weight: bold;
+}
+.day{
+    font-size: 16px;
+    color: var(--color-text-secondary);
+}
+.event-details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+}
+.event-details h2{
+    font-size: 14px;
+}
+.time{
+    display: flex;
+}
+.time p{
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+.time-icon{
+    flex: 0 0 30px;
+    font-size: 20px;
+    color: var(--color-text-secondary);
+}
+.location{
+    display: flex;
+}
+.location p{
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+.location-icon{
+    flex: 0 0 30px;
+    font-size: 20px;
+    color: var(--color-text-secondary);
+}
+.arrow-icon{
+    font-size: 16px;
+    color: var(--color-text-secondary);
+}
+.upcoming-events{
+    margin-top: 20px;
+}
+.upcoming-events h3{
+    text-align: center;
+}

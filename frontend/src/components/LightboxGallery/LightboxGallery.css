@@ -14,6 +14,9 @@
 .gallery-img:hover {
   transform: scale(1.03);
 }
+.gallery-section h3{
+  text-align: center;
+}
 
 /* Medium screens - 3 columns */
 @media (min-width: 600px) {

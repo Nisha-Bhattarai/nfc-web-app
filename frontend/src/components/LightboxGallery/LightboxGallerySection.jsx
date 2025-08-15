@@ -13,7 +13,7 @@ const images = [
 const LightboxGallerySection = () => {
   return (
     <div>
-      <LightboxGallery images={images} title="Gallery" />
+      <LightboxGallery images={images} title="GALLERY" />
     </div>
   );
 };

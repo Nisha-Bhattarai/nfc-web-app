@@ -7,6 +7,8 @@ import { FaDownload, FaExchangeAlt } from "react-icons/fa";
 import SocialSection from '../../components/Social/SocialSection'
 import WebsiteSection from '../../components/Website/WebsiteSection'
 import LightboxGallerySection from '../../components/LightboxGallery/LightboxGallerySection'
+import UpcomingEvents from '../../components/Event/UpcomingEvents'
+import OngoingEvents from '../../components/Event/OngoingEvents'
 
 const PrimaryHome = () => {
   return (
@@ -20,6 +22,8 @@ const PrimaryHome = () => {
       <SocialSection />
       <WebsiteSection />
       <LightboxGallerySection />
+      <OngoingEvents />
+      <UpcomingEvents />
     </div>
   )
 }
