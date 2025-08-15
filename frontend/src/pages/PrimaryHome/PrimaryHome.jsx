@@ -6,6 +6,7 @@ import Button from '../../components/Button/Button'
 import { FaDownload, FaExchangeAlt } from "react-icons/fa";
 import SocialSection from '../../components/Social/SocialSection'
 import WebsiteSection from '../../components/Website/WebsiteSection'
+import LightboxGallerySection from '../../components/LightboxGallery/LightboxGallerySection'
 
 const PrimaryHome = () => {
   return (
@@ -18,6 +19,7 @@ const PrimaryHome = () => {
       <About />
       <SocialSection />
       <WebsiteSection />
+      <LightboxGallerySection />
     </div>
   )
 }
