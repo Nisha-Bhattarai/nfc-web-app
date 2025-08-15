@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
-import "./PrimaryHome.css"
+import "./EventHome.css"
 import About from '../../components/About/About'
 import Button from '../../components/Button/Button'
 import { FaDownload, FaExchangeAlt } from "react-icons/fa";
@@ -10,7 +10,7 @@ import LightboxGallerySection from '../../components/LightboxGallery/LightboxGal
 import UpcomingEvents from '../../components/Event/UpcomingEvents'
 import OngoingEvents from '../../components/Event/OngoingEvents'
 
-const PrimaryHome = () => {
+const EventHome = () => {
   return (
     <div className='profile-container'>
       <Header />
@@ -21,9 +21,11 @@ const PrimaryHome = () => {
       <About />
       <SocialSection />
       <WebsiteSection />
+      <OngoingEvents />
+      <UpcomingEvents />
       <LightboxGallerySection />
     </div>
   )
 }
 
-export default PrimaryHome
+export default EventHome
