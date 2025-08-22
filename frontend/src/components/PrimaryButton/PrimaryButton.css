@@ -1,0 +1,16 @@
+.ec-button {
+appearance: none;
+width: 100%;
+border: none;
+border-radius: 18px;
+padding: 1.1rem 1.25rem;
+font-size: 1.25rem;
+font-weight: 700;
+background: #de6f26;
+color: #fff;
+cursor: pointer;
+transition: transform 120ms ease, filter 120ms ease;
+}
+.ec-button:hover { filter: brightness(1.03); }
+.ec-button:active { transform: translateY(1px); }
+.ec-button:disabled { opacity: 0.6; cursor: not-allowed; }

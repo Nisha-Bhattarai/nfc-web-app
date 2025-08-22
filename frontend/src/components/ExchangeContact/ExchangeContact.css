@@ -1,0 +1,25 @@
+.ec-container{
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+}
+.ec-header{
+    text-align: center;
+}
+.ec-title-accent{
+    display: block;
+    color: var(--color-accent);
+}
+.ec-form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.ec-names{
+    display: flex;
+    gap: 12px;
+}
+@media (min-width: 720px) { .ec-grid { grid-template-columns: 1fr 1fr; } }
+.ec-hint { margin: 0.25rem 0 0.75rem; color: #c04343; font-size: 0.9rem; }

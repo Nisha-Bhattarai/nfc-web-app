@@ -13,15 +13,22 @@ import Skills from '../../components/Skills/Skills'
 import RelevantCertifications from '../../components/RelevantCertifications/RelevantCertifications'
 import ContactPermissionModal from '../../components/ContactPermissionModal/ContactPermissionModal'
 import EventDetails from '../../components/EventDetails/EventDetails'
+import ExchangeContact from '../../components/ExchangeContact/ExchangeContact'
+import Modal from '../../components/Modal/Modal'
 
 const EventHome = () => {
+  const [open, setOpen] = React.useState(false);
+
   return (
     <div className='profile-container'>
       <ContactPermissionModal />
       <Header />
       <div className="button-group">
         <Button icon={FaDownload} label="Save Contact" onClick={() => alert("Saved!")} />
-        <Button icon={FaExchangeAlt} label="Exchange Contact" onClick={() => alert("Exchanged!")} />
+        <Button icon={FaExchangeAlt} label="Exchange Contact" onClick={() => setOpen(true)} />
+          <Modal isOpen={open} onClose={() => setOpen(false)}>
+            <ExchangeContact />
+          </Modal>
       </div>
       <About />
       <SocialSection />
@@ -33,6 +40,7 @@ const EventHome = () => {
       title="RELEVANT CERTIFICATIONS"
       certifications={[
         "Certified Financial Planner (CFP®)",
+        "",
         "Security Guard License",
         "First Aid Certificate"
       ]}
