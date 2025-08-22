@@ -12,6 +12,7 @@ import OngoingEvents from '../../components/Event/OngoingEvents'
 import Skills from '../../components/Skills/Skills'
 import RelevantCertifications from '../../components/RelevantCertifications/RelevantCertifications'
 import ContactPermissionModal from '../../components/ContactPermissionModal/ContactPermissionModal'
+import EventDetails from '../../components/EventDetails/EventDetails'
 
 const EventHome = () => {
   return (

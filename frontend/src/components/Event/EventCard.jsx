@@ -1,8 +1,16 @@
 import React from 'react';
 import './EventCard.css';
 import { FaClock, FaLocationArrow, FaChevronRight } from "react-icons/fa";
+import EventDetails from '../EventDetails/EventDetails';
+import Modal from '../Modal/Modal';
 
 const EventCard = ({ month, date, day, title, time, location }) => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleRegister = () => {
+    console.log("Register button clicked!");
+  };
+
   return (
     <div className='event-card-container'>
       <div className='event-calendar'>
@@ -24,7 +32,14 @@ const EventCard = ({ month, date, day, title, time, location }) => {
         </div>
       </div>
       <div className='arrow'>
-        <FaChevronRight className='arrow-icon' />
+        <FaChevronRight className='arrow-icon' onClick={() => setOpen(true)} />
+          <Modal isOpen={open} onClose={() => setOpen(false)}>
+            <EventDetails 
+            description="A lunch-and-learn session with practical insights on retirement planning, 401(k) options, and tax-efficient saving. Complimentary lunch included."
+            fee="$20 – space limited to 25 participants"
+            date="June 5, 2025 - June 10, 2025"
+            onRegister={handleRegister}/>
+          </Modal>
       </div>
     </div>
   );

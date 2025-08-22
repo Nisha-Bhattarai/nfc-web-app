@@ -11,9 +11,10 @@
 }
 
 .modal-content {
+   max-width: 480px;
   background: white;
   padding: 16px 10px;
-  margin: 0 10px;
+  margin: auto;
   border-radius: 18px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
