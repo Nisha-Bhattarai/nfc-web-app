@@ -1,0 +1,31 @@
+.ec-select {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 18px;
+  border: 2px solid #e2e2e2;
+  padding: 1.05rem 1.25rem;
+  font-size: 1.05rem;
+  background: #fff;
+  color: #2c3340;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%232c3340' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25rem;
+}
+
+.ec-select option {
+  max-width: 480px;       
+  white-space: nowrap;   
+  overflow: hidden;       
+  text-overflow: ellipsis;
+}
+
+.ec-select:focus {
+  border-color: #cfd6e6;
+  box-shadow: 0 0 0 4px rgba(31, 58, 82, 0.08);
+}
+
+.ec-select-error {
+  border-color: #c04343;
+}

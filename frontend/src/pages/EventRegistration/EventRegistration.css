@@ -1,0 +1,40 @@
+.er-container{
+  max-width: 480px;
+  min-height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  color: #333;
+}
+
+.er-header{
+  text-align: center;
+}
+
+.er-title{
+  display: block;
+  color: #2c3340; 
+  font-weight: 700;
+}
+
+.er-form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ec-hint { 
+  margin: 0.25rem 0 0.75rem; 
+  color: #c04343; 
+  font-size: 0.9rem; 
+}
+
+
+@media (max-width: 540px) {
+  .er-names { flex-direction: column; }
+}

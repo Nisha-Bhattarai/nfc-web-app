@@ -12,7 +12,6 @@ import OngoingEvents from '../../components/Event/OngoingEvents'
 import Skills from '../../components/Skills/Skills'
 import RelevantCertifications from '../../components/RelevantCertifications/RelevantCertifications'
 import ContactPermissionModal from '../../components/ContactPermissionModal/ContactPermissionModal'
-import EventDetails from '../../components/EventDetails/EventDetails'
 import ExchangeContact from '../../components/ExchangeContact/ExchangeContact'
 import Modal from '../../components/Modal/Modal'
 
@@ -40,7 +39,6 @@ const EventHome = () => {
       title="RELEVANT CERTIFICATIONS"
       certifications={[
         "Certified Financial Planner (CFP®)",
-        "",
         "Security Guard License",
         "First Aid Certificate"
       ]}

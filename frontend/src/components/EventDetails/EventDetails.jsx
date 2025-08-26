@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { TbCashRegister } from "react-icons/tb";
 import { FaCalendarAlt } from "react-icons/fa";
 import "./EventDetails.css";
 
-const EventDetails = ({ description, fee, date, onRegister }) => {
+const EventDetails = ({ description, fee, date }) => {
+const navigate = useNavigate();
+
   return (
     <div className="ed-container">
       <h2 className="ed-title">Details:</h2>
@@ -19,7 +22,7 @@ const EventDetails = ({ description, fee, date, onRegister }) => {
         <p className="event-date">{date}</p>
       </div>
 
-      <button className="--btn" onClick={onRegister}>
+      <button className="--btn" onClick={() => navigate("/event-registration")}>
         Register Now
       </button>
     </div>
