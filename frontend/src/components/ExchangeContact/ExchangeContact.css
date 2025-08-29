@@ -23,3 +23,9 @@
 }
 @media (min-width: 720px) { .ec-grid { grid-template-columns: 1fr 1fr; } }
 .ec-hint { margin: 0.25rem 0 0.75rem; color: #c04343; font-size: 0.9rem; }
+
+@media (max-width: 375px) {
+  .ec-names {
+    flex-direction: column; 
+  }
+}
