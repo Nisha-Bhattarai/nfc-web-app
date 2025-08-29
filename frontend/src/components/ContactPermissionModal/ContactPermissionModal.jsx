@@ -1,33 +1,45 @@
 import React, { useEffect, useState } from "react";
-import Modal from "../Modal/Modal"
+import Modal from "../Modal/Modal";
+import ExchangeContact from "../ExchangeContact/ExchangeContact"; // content, no auto-open inside
 import "./ContactPermissionModal.css";
 
 const ContactPermissionModal = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showPermission, setShowPermission] = useState(true);
+  const [showExchange, setShowExchange] = useState(false);
 
-  // Ensure modal pops up on every load
+  // always show permission modal on load
   useEffect(() => {
-    setShowModal(true);
+    setShowPermission(true);
+    setShowExchange(false); // defensive: ensure the exchange modal is NOT open on mount
   }, []);
 
   const handleYes = () => {
-    console.log("User agreed to share contact info");
-    setShowModal(false);
+    setShowPermission(false);
+    // Option A: open immediately
+    setShowExchange(true);
+    // Option B: if your Modal supports onAfterClose, open inside that instead
   };
 
-  const handleNo = () => {
-    console.log("User declined");
-    setShowModal(false);
-  };
+  const handleNo = () => setShowPermission(false);
 
   return (
-    <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-      <p>Would you like to share your contact information with me to stay in touch?</p>
-      <div className="modal-buttons">
-        <button className="yes-btn" onClick={handleYes}>✓ Yes</button>
-        <button className="no-btn" onClick={handleNo}>✗ No</button>
-      </div>
-    </Modal>
+    <>
+      {/* Permission modal */}
+      <Modal isOpen={showPermission} onClose={handleNo}>
+        <p>Would you like to share your contact information with me to stay in touch?</p>
+        <div className="modal-buttons">
+          <button className="yes-btn" onClick={handleYes}>✓ Yes</button>
+          <button className="no-btn" onClick={handleNo}>✗ No</button>
+        </div>
+      </Modal>
+
+      {/* Exchange modal mounted ONLY when needed */}
+      {showExchange && (
+        <Modal isOpen onClose={() => setShowExchange(false)}>
+          <ExchangeContact />
+        </Modal>
+      )}
+    </>
   );
 };
 

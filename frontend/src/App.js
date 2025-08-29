@@ -8,8 +8,8 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      {/* <Route path="/" element={<EventHome />} /> */}
-      <Route path="/" element={<PrimaryHome />} />
+      <Route path="/" element={<EventHome />} />
+      {/* <Route path="/" element={<PrimaryHome />} /> */}
       <Route path="/event-registration" element={<EventRegistration />} />
     </Routes>
     </BrowserRouter>

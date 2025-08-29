@@ -38,7 +38,7 @@ const EventCard = ({ month, date, day, title, time, location }) => {
             description="A lunch-and-learn session with practical insights on retirement planning, 401(k) options, and tax-efficient saving. Complimentary lunch included."
             fee="$20 – space limited to 25 participants"
             date="June 5, 2025 - June 10, 2025"
-            onRegister={handleRegister}/>
+            />
           </Modal>
       </div>
     </div>
