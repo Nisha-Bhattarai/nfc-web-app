@@ -2,7 +2,7 @@ import React from 'react'
 import { FaLocationDot } from "react-icons/fa6";
 import "./Header.css"
 
-const Header = () => {
+const Header = ({user}) => {
   return (
     <div className='profile-header'>
         <img 
