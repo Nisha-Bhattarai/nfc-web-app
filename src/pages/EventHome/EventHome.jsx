@@ -16,6 +16,7 @@ import ExchangeContact from '../../components/ExchangeContact/ExchangeContact'
 import Modal from '../../components/Modal/Modal'
 import "../../components/Header/Header"
 import { FaLocationDot } from "react-icons/fa6";
+
 const EventHome = ({ user, profile }) => {
   const [open, setOpen] = React.useState(false);
 
