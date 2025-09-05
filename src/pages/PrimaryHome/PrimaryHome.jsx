@@ -12,6 +12,7 @@ import Modal from '../../components/Modal/Modal'
 import ExchangeContact from '../../components/ExchangeContact/ExchangeContact'
 import "../../components/Header/Header"
 import { FaLocationDot } from "react-icons/fa6";
+import SiteFooter from '../../components/SiteFooter/SiteFooter'
 
 const PrimaryHome = ({ user, profile }) => {
   const [open, setOpen] = React.useState(false);
@@ -44,6 +45,7 @@ const PrimaryHome = ({ user, profile }) => {
       <SocialSection socialMedia = {profile.socialMedia} />
       <WebsiteSection sites={profile.relevantLinks} />
       <LightboxGallerySection title="GALLERY" images={profile.photoGallery} />
+      <SiteFooter companyName="Captain Printworks" startYear={1986} privacyHref="/privacy-policy" />
     </div>
   )
 }
