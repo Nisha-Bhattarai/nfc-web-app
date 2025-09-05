@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import PrimaryHome from "./pages/PrimaryHome/PrimaryHome.jsx";
 import EventHome from "./pages/EventHome/EventHome.jsx";
 import EventRegistration from "./pages/EventRegistration/EventRegistration.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy.jsx";
+import Layout from "./components/Layout/Layout.jsx";
 
 // Simple 404 page
 function NotFound() {
@@ -70,12 +72,16 @@ function HomeWrapper() {
 function App() {
   return (
     <BrowserRouter>
+    <Layout>
       <Routes>
         {/* Dynamic userId route */}
         <Route path="/:userId" element={<HomeWrapper />} />
 
         {/* Event registration */}
         <Route path="/event-registration" element={<EventRegistration />} />
+
+        {/* Privacy Policy */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
         {/* 404 Page */}
         <Route path="/404" element={<NotFound />} />
@@ -86,6 +92,7 @@ function App() {
         {/* Catch all unmatched routes */}
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
+    </Layout>
     </BrowserRouter>
   );
 }
