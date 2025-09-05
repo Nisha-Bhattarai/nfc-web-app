@@ -5,7 +5,7 @@ import PrimaryHome from "./pages/PrimaryHome/PrimaryHome.jsx";
 import EventHome from "./pages/EventHome/EventHome.jsx";
 import EventRegistration from "./pages/EventRegistration/EventRegistration.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy.jsx";
-import Layout from "./components/Layout/Layout.jsx";
+import Layout from "./components/Layout/Layout";
 
 // Simple 404 page
 function NotFound() {
