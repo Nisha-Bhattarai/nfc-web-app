@@ -46,8 +46,8 @@ const EventHome = ({ user, profile }) => {
       <About bio = {profile.aboutEvent} />
       <SocialSection socialMedia = {profile.socialMedia} />
       <WebsiteSection sites={profile.relevantLinks} />
-      <OngoingEvents />
-      <UpcomingEvents />
+      <OngoingEvents event = {profile}/>
+      <UpcomingEvents upcomingEvents ={profile.upcomingEvents}/>
       <Skills skills = {profile.skills}/>
       <RelevantCertifications
         title="RELEVANT CERTIFICATIONS"

@@ -4,7 +4,7 @@ import { FaClock, FaLocationArrow, FaChevronRight } from "react-icons/fa";
 import EventDetails from '../EventDetails/EventDetails';
 import Modal from '../Modal/Modal';
 
-const EventCard = ({ month, date, day, title, time, location }) => {
+const EventCard = ({ month, date, day, title, time, location, showArrow }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleRegister = () => {
@@ -31,16 +31,18 @@ const EventCard = ({ month, date, day, title, time, location }) => {
           <p>{location}</p>
         </div>
       </div>
-      <div className='arrow'>
-        <FaChevronRight className='arrow-icon' onClick={() => setOpen(true)} />
+      {showArrow && (
+        <div className='arrow'>
+          <FaChevronRight className='arrow-icon' onClick={() => setOpen(true)} />
           <Modal isOpen={open} onClose={() => setOpen(false)}>
             <EventDetails 
-            description="A lunch-and-learn session with practical insights on retirement planning, 401(k) options, and tax-efficient saving. Complimentary lunch included."
-            fee="$20 – space limited to 25 participants"
-            date="June 5, 2025 - June 10, 2025"
+              description="A lunch-and-learn session with practical insights on retirement planning, 401(k) options, and tax-efficient saving. Complimentary lunch included."
+              fee="$20 – space limited to 25 participants"
+              date="June 5, 2025 - June 10, 2025"
             />
           </Modal>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
