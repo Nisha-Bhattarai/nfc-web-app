@@ -1,57 +1,79 @@
-.ed-container{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 8px;
+.ed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
 }
-.ed-title{
-    text-align: left;
+
+.ed-title {
+  text-align: left;
+  margin-bottom: 0px; 
 }
-p.ed{
-    text-align: left;
+
+p.ed-description {
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 10px; 
 }
-.rf-container{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
+
+p.ed {
+  text-align: left;
+  margin-bottom: 0px; 
 }
-.rf-icon{
-    font-size: 30px;
+
+.rf-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
 }
-.rf{
-    overflow-wrap: anywhere; 
-    word-break: break-word;
-    white-space: normal;
+
+.rf-icon {
+  font-size: 16px;
 }
-.event-date-container{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
+
+.rf {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
 }
-.event-date-icon{
-    font-size: 30px;
+
+.event-date-container {
+  display: flex;
+  flex-direction: row;
+  gap: 6px; /* tighter spacing */
+  align-items: center;
+  margin-bottom: 4px;
 }
-.event-date{
-    overflow-wrap: anywhere; 
-    word-break: break-word;
-    white-space: normal;
+
+.event-date-icon {
+  font-size: 16px;
 }
-.--btn{
-    font-size: 16px;
-    font-weight: 400;
-    padding: 15px;
-    border: 1px solid var(--color-accent);
-    background-color: var(--color-accent);
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
+
+p.event-date {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  font-size: 14px;
+  text-transform: lowercase !important; /* prevent all caps */
 }
+
+.--btn {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px;
+  border: 1px solid var(--color-accent);
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  margin-top: 10px; /* reduced from 20px */
+}
+
 .--btn:hover {
   transform: translateY(-2px);
 }

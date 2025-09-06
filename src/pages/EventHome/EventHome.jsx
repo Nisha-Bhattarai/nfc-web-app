@@ -28,11 +28,10 @@ const EventHome = ({ user, profile }) => {
       return;
     }
 
-    // Create a vCard content
     const vCard = `
 BEGIN:VCARD
 VERSION:3.0
-FN:${profile.eventName || "My Contact"}
+FN:${profile.eventProfileName || "My Contact"}
 TEL;TYPE=CELL:${phoneNumber}
 EMAIL:${profile.personalEmail || profile.workEmail || ""}
 END:VCARD
@@ -43,7 +42,7 @@ END:VCARD
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${profile.eventName || "contact"}.vcf`;
+    a.download = `${profile.eventProfileName || "contact"}.vcf`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -72,14 +71,14 @@ END:VCARD
         <Button icon={FaDownload} label="Save Contact" onClick={ handleSaveContact} />
         <Button icon={FaExchangeAlt} label="Exchange Contact" onClick={() => setOpen(true)} />
         <Modal isOpen={open} onClose={() => setOpen(false)}>
-          <ExchangeContact />
+          <ExchangeContact  exchangeToUserId={user.id}/>
         </Modal>
       </div>
       <About bio={profile.aboutEvent} />
       <SocialSection socialMedia={profile.socialMedia} />
       <WebsiteSection sites={profile.relevantLinks} />
       <OngoingEvents event={profile} />
-      <UpcomingEvents upcomingEvents={profile.upcomingEvents} />
+      <UpcomingEvents upcomingEvents={profile.upcomingEvents} userId={user.id} />
       <Skills skills={profile.skills} />
       <RelevantCertifications
         title="RELEVANT CERTIFICATIONS"

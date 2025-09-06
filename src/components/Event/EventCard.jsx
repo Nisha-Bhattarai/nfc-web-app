@@ -4,8 +4,22 @@ import { FaClock, FaLocationArrow, FaChevronRight } from "react-icons/fa";
 import EventDetails from '../EventDetails/EventDetails';
 import Modal from '../Modal/Modal';
 
-const EventCard = ({ month, date, day, title, time, location, showArrow }) => {
+const EventCard = ({ eventStartDate, eventEndDate, title, location, bio, showArrow, userId, eventId }) => {
   const [open, setOpen] = React.useState(false);
+
+  const startDate = new Date(eventStartDate);
+  const month = startDate.toLocaleString('default', { month: 'short' }).toUpperCase();
+  const date = startDate.getDate();
+  const day = startDate.toLocaleString('default', { weekday: 'short' }).toUpperCase();
+
+  const endDate = new Date(eventEndDate)
+  const startTime = startDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const endTime = endDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const time = `${startTime} – ${endTime}`;
+
+   const endMonth = startDate.toLocaleString('default', { month: 'short' }).toUpperCase();
+  const endDateDate = startDate.getDate();
+  const endDay = startDate.toLocaleString('default', { weekday: 'short' }).toUpperCase();
 
   const handleRegister = () => {
     console.log("Register button clicked!");
@@ -35,10 +49,13 @@ const EventCard = ({ month, date, day, title, time, location, showArrow }) => {
         <div className='arrow'>
           <FaChevronRight className='arrow-icon' onClick={() => setOpen(true)} />
           <Modal isOpen={open} onClose={() => setOpen(false)}>
-            <EventDetails 
-              description="A lunch-and-learn session with practical insights on retirement planning, 401(k) options, and tax-efficient saving. Complimentary lunch included."
-              fee="$20 – space limited to 25 participants"
-              date="June 5, 2025 - June 10, 2025"
+            <EventDetails
+              title={title}
+              bio={bio}
+              time={time}
+              userId={userId}
+              eventId={eventId}
+              date={day + ' ' + month + ', ' + date + ' - ' + endDay + ' ' + endMonth + ', ' + endDateDate }
             />
           </Modal>
         </div>

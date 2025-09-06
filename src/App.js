@@ -75,11 +75,12 @@ function App() {
     <BrowserRouter>
     <Layout>
       <Routes>
+           {/* Event registration */}
+        <Route path="/event-registration" element={<EventRegistration />} />
         {/* Dynamic userId route */}
         <Route path="/:userId" element={<HomeWrapper />} />
 
-        {/* Event registration */}
-        <Route path="/event-registration" element={<EventRegistration />} />
+     
 
         {/* Privacy Policy */}
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

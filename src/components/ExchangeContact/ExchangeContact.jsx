@@ -4,7 +4,7 @@ import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import "./ExchangeContact.css";
 
 
-export default function ExchangeContact() {
+export default function ExchangeContact({exchangeToUserId}) {
 const [form, setForm] = useState({
 firstName: "",
 lastName: "",
@@ -16,18 +16,41 @@ const [submitted, setSubmitted] = useState(false);
 
 const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
+const onSubmit = async (e) => {
+  e.preventDefault();
+  setSubmitted(true);
 
-const onSubmit = (e) => {
-e.preventDefault();
-setSubmitted(true);
+  const emailOk = /.+@.+\..+/.test(form.email);
+  if (!form.firstName || !form.lastName || !emailOk || !form.phone) return;
 
+  try {
+    const response = await fetch("https://nfc-be.onrender.com/api/v1/contact/exchangeContact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: `${form.firstName} ${form.lastName}`,
+        email: form.email,
+        phone: form.phone,
+        exchangeToUserId: exchangeToUserId, 
+      }),
+    });
 
-const emailOk = /.+@.+\..+/.test(form.email);
-if (!form.firstName || !form.lastName || !emailOk || !form.phone) return;
+    const data = await response.json();
 
-
-alert(`Thanks, ${form.firstName}! We\'ll reach you at ${form.email}.`);
+    if (response.ok) {
+      alert(`Thanks, ${form.firstName}! Contact exchanged successfully.`);
+      setForm({ firstName: "", lastName: "", email: "", phone: "" }); // reset form
+      setSubmitted(false);
+    } else {
+      alert(`Error: ${data.error || "Something went wrong."}`);
+    }
+  } catch (err) {
+    alert(`Error: ${err.message}`);
+  }
 };
+
 
 
 const emailInvalid = submitted && !/.+@.+\..+/.test(form.email);

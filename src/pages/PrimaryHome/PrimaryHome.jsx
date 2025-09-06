@@ -16,6 +16,34 @@ import { FaLocationDot } from "react-icons/fa6";
 const PrimaryHome = ({ user, profile }) => {
   const [open, setOpen] = React.useState(false);
 
+const handleSaveContact = () => {
+    // Pick personal or work phone
+    const phoneNumber = profile.personalPhone || profile.workPhone;
+
+    if (!phoneNumber) {
+      alert("No phone number available to save!");
+      return;
+    }
+
+    const vCard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${profile.firstName || "My Contact"}
+TEL;TYPE=CELL:${phoneNumber}
+EMAIL:${profile.personalEmail || profile.workEmail || ""}
+END:VCARD
+`;
+
+    // Create a Blob and download link
+    const blob = new Blob([vCard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${profile.profileName || "contact"}.vcf`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className='profile-container'>
       {/* <ContactPermissionModal /> */}
@@ -38,10 +66,10 @@ const PrimaryHome = ({ user, profile }) => {
       </div>
 
       <div className="button-group">
-        <Button icon={FaDownload} label="Save Contact" onClick={() => alert("Saved!")} />
+        <Button icon={FaDownload} label="Save Contact" onClick={handleSaveContact} />
         <Button icon={FaExchangeAlt} label="Exchange Contact" onClick={() => setOpen(true)} />
         <Modal isOpen={open} onClose={() => setOpen(false)}>
-          <ExchangeContact />
+          <ExchangeContact  exchangeToUserId={user.id} />
         </Modal>
       </div>
       <About bio={profile.bio} />
