@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../../components/Header/Header'
 import "./EventHome.css"
 import About from '../../components/About/About'
@@ -16,6 +16,7 @@ import ExchangeContact from '../../components/ExchangeContact/ExchangeContact'
 import Modal from '../../components/Modal/Modal'
 import "../../components/Header/Header"
 import { FaLocationDot } from "react-icons/fa6";
+import { captureScanData } from "../../components/CaptureScanData/captureScanData";
 
 const EventHome = ({ user, profile }) => {
   const [open, setOpen] = React.useState(false);
@@ -46,6 +47,16 @@ END:VCARD
     a.click();
     URL.revokeObjectURL(url);
   };
+  const hasPosted = useRef(false);
+
+  // post scan data
+  useEffect(() => {
+    if (user?.id && !hasPosted.current) {
+      captureScanData(user.id, "EVENT");
+      hasPosted.current = true;
+    }
+  }, [user?.id]);
+
   return (
     <div className='profile-container'>
       {/* <ContactPermissionModal />
@@ -68,10 +79,10 @@ END:VCARD
         </div>
       </div>
       <div className="button-group">
-        <Button icon={FaDownload} label="Save Contact" onClick={ handleSaveContact} />
+        <Button icon={FaDownload} label="Save Contact" onClick={handleSaveContact} />
         <Button icon={FaExchangeAlt} label="Exchange Contact" onClick={() => setOpen(true)} />
         <Modal isOpen={open} onClose={() => setOpen(false)}>
-          <ExchangeContact  exchangeToUserId={user.id}/>
+          <ExchangeContact exchangeToUserId={user.id} />
         </Modal>
       </div>
       <About bio={profile.aboutEvent} />

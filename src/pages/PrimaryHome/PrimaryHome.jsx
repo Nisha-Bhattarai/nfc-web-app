@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import Header from '../../components/Header/Header'
 import "./PrimaryHome.css"
 import About from '../../components/About/About'
@@ -12,6 +12,7 @@ import Modal from '../../components/Modal/Modal'
 import ExchangeContact from '../../components/ExchangeContact/ExchangeContact'
 import "../../components/Header/Header"
 import { FaLocationDot } from "react-icons/fa6";
+import { captureScanData } from "../../components/CaptureScanData/captureScanData";
 
 const PrimaryHome = ({ user, profile }) => {
   const [open, setOpen] = React.useState(false);
@@ -44,6 +45,16 @@ END:VCARD
     URL.revokeObjectURL(url);
   };
 
+  const hasPosted = useRef(false);
+  
+    // post scan data
+    useEffect(() => {
+      if (user?.id && !hasPosted.current) {
+        captureScanData(user.id, "PRIMARY");
+        hasPosted.current = true;
+      }
+    }, [user?.id]);
+  
   return (
     <div className='profile-container'>
       {/* <ContactPermissionModal /> */}

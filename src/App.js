@@ -1,6 +1,6 @@
 // App.jsx
 import { BrowserRouter, Routes, Route, useParams, Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import PrimaryHome from "./pages/PrimaryHome/PrimaryHome.jsx";
 import EventHome from "./pages/EventHome/EventHome.jsx";
 import EventRegistration from "./pages/EventRegistration/EventRegistration.jsx";
@@ -20,10 +20,11 @@ function HomeWrapper() {
   const [homeType, setHomeType] = useState(null); // "primary" or "event"
   const [error, setError] = useState(false);
   const [userData, setUserData] = useState(null);
+  const hasFetched = useRef(false);
 
   useEffect(() => {
     console.log("Userid=====> ", userId)
-    if (!userId) return;
+    if (!userId || hasFetched.current) return;
 
     const fetchHomeType = async () => {
       try {
