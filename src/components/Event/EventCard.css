@@ -4,7 +4,7 @@
     background-color: var(--color-secondary);
     border-radius: 18px;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
 }
 .calendar{
@@ -13,7 +13,6 @@
     padding: 8px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
     align-items: center;
     justify-content: center;
 }

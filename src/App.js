@@ -6,6 +6,7 @@ import EventHome from "./pages/EventHome/EventHome.jsx";
 import EventRegistration from "./pages/EventRegistration/EventRegistration.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy.jsx";
 import Layout from "./components/Layout/Layout";
+import LoadingScreen from "./components/Loading/LoadingScreen";
 
 // Simple 404 page
 function NotFound() {
@@ -54,7 +55,7 @@ function HomeWrapper() {
     fetchHomeType();
   }, [userId]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingScreen />;
   if (error) return <Navigate to="/404" replace />;
 
   if (!homeType) {
