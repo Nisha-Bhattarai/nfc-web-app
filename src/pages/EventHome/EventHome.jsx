@@ -19,7 +19,34 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const EventHome = ({ user, profile }) => {
   const [open, setOpen] = React.useState(false);
+  const handleSaveContact = () => {
+    // Pick personal or work phone
+    const phoneNumber = profile.personalPhone || profile.workPhone;
 
+    if (!phoneNumber) {
+      alert("No phone number available to save!");
+      return;
+    }
+
+    // Create a vCard content
+    const vCard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${profile.eventName || "My Contact"}
+TEL;TYPE=CELL:${phoneNumber}
+EMAIL:${profile.personalEmail || profile.workEmail || ""}
+END:VCARD
+`;
+
+    // Create a Blob and download link
+    const blob = new Blob([vCard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${profile.eventName || "contact"}.vcf`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
   return (
     <div className='profile-container'>
       {/* <ContactPermissionModal />
@@ -27,7 +54,11 @@ const EventHome = ({ user, profile }) => {
 
       <div className='profile-header'>
         <img
-          src={`${process.env.PUBLIC_URL}/images/avatar.png`}
+          src={
+            (profile?.photoGallery?.length > 0)
+              ? profile.photoGallery[0]
+              : `${process.env.PUBLIC_URL}/images/avatar.png`
+          }
           alt={user.firstName}
           className='profile-image'
         />
@@ -38,18 +69,18 @@ const EventHome = ({ user, profile }) => {
         </div>
       </div>
       <div className="button-group">
-        <Button icon={FaDownload} label="Save Contact" onClick={() => alert("Saved!")} />
+        <Button icon={FaDownload} label="Save Contact" onClick={ handleSaveContact} />
         <Button icon={FaExchangeAlt} label="Exchange Contact" onClick={() => setOpen(true)} />
         <Modal isOpen={open} onClose={() => setOpen(false)}>
           <ExchangeContact />
         </Modal>
       </div>
-      <About bio = {profile.aboutEvent} />
-      <SocialSection socialMedia = {profile.socialMedia} />
+      <About bio={profile.aboutEvent} />
+      <SocialSection socialMedia={profile.socialMedia} />
       <WebsiteSection sites={profile.relevantLinks} />
-      <OngoingEvents event = {profile}/>
-      <UpcomingEvents upcomingEvents ={profile.upcomingEvents}/>
-      <Skills skills = {profile.skills}/>
+      <OngoingEvents event={profile} />
+      <UpcomingEvents upcomingEvents={profile.upcomingEvents} />
+      <Skills skills={profile.skills} />
       <RelevantCertifications
         title="RELEVANT CERTIFICATIONS"
         certifications={profile.certifications}

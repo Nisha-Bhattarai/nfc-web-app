@@ -22,7 +22,11 @@ const PrimaryHome = ({ user, profile }) => {
       {/* <Header /> */}
       <div className='profile-header'>
         <img
-          src={`${process.env.PUBLIC_URL}/images/avatar.png`}
+          src={
+            (profile?.profilePicture && profile.profilePicture.trim() !== "")
+              ? profile.profilePicture
+              : `${process.env.PUBLIC_URL}/images/avatar.png`
+          }
           alt={user.firstName}
           className='profile-image'
         />
@@ -40,8 +44,8 @@ const PrimaryHome = ({ user, profile }) => {
           <ExchangeContact />
         </Modal>
       </div>
-      <About bio={profile.bio}/>
-      <SocialSection socialMedia = {profile.socialMedia} />
+      <About bio={profile.bio} />
+      <SocialSection socialMedia={profile.socialMedia} />
       <WebsiteSection sites={profile.relevantLinks} />
       <LightboxGallerySection title="GALLERY" images={profile.photoGallery} />
     </div>
