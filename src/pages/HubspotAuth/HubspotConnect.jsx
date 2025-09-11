@@ -1,26 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function HubspotConnect() {
-  useEffect(() => {
-    // Get query params from current URL
-    const params = new URLSearchParams(window.location.search);
-    const userId = params.get("userId");
+  const [userId, setUserId] = useState(null);
 
-    if (userId) {
-      window.location.href = `https://nfc-be.onrender.com/api/v1/hubspotauth/connect?userId=${userId}`;
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const uid = params.get("userId");
+
+    if (uid) {
+      setUserId(uid);
+      // Delay redirect slightly so message is visible
+      setTimeout(() => {
+        window.location.href = `https://nfc-be.onrender.com/api/v1/hubspotauth/connect?userId=${uid}`;
+      }, 500); // 0.5 seconds delay
     }
   }, []);
 
   return (
     <div style={{
-        fontFamily: "sans-serif",
-        height: "100vh", // full viewport height
-        display: "flex", // enable flexbox
-        justifyContent: "center", // center horizontally
-        alignItems: "center", // center vertically
-        textAlign: "center",
-      }}>
-      <p>Redirecting to HubSpot...</p>
+      fontFamily: "sans-serif",
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
+      flexDirection: "column",
+      color: 'orange'
+    }}>
+      {userId ? <p>Redirecting to HubSpot...</p> : <p>Loading...</p>}
     </div>
   );
 }
