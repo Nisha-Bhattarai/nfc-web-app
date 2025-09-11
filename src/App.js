@@ -87,7 +87,7 @@ function App() {
         {/* Privacy Policy */}
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
-                <Route path="HubspotAuth/HubspotConnect" element={<HubspotConnect />} />
+        <Route path="/HubspotAuth/HubspotConnect" element={<HubspotConnect />} />
 
 
         {/* 404 Page */}

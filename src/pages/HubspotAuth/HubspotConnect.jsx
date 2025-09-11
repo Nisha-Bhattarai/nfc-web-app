@@ -9,10 +9,13 @@ export default function HubspotConnect() {
 
     if (uid) {
       setUserId(uid);
-      // Delay redirect slightly so message is visible
-      setTimeout(() => {
+
+      // Fallback redirect after delay
+      const timer = setTimeout(() => {
         window.location.href = `https://nfc-be.onrender.com/api/v1/hubspotauth/connect?userId=${uid}`;
-      }, 500); // 0.5 seconds delay
+      }, 1000);
+
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -27,7 +30,19 @@ export default function HubspotConnect() {
       flexDirection: "column",
       color: 'orange'
     }}>
-      {userId ? <p>Redirecting to HubSpot...</p> : <p>Loading...</p>}
+      {userId ? (
+        <>
+          <p>Redirecting to HubSpot...</p>
+          <p>
+            <a
+              href={`https://nfc-be.onrender.com/api/v1/hubspotauth/connect?userId=${userId}`}
+              style={{ color: 'orange', textDecoration: 'underline' }}
+            >
+              Click here if not redirected
+            </a>
+          </p>
+        </>
+      ) : <p>Loading...</p>}
     </div>
   );
 }
