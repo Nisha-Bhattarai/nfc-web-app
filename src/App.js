@@ -5,6 +5,7 @@ import PrimaryHome from "./pages/PrimaryHome/PrimaryHome.jsx";
 import EventHome from "./pages/EventHome/EventHome.jsx";
 import EventRegistration from "./pages/EventRegistration/EventRegistration.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy.jsx";
+import HubspotConnect from "./pages/HubspotAuth/HubspotConnect.jsx";
 import Layout from "./components/Layout/Layout";
 import LoadingScreen from "./components/Loading/LoadingScreen";
 
@@ -85,6 +86,9 @@ function App() {
 
         {/* Privacy Policy */}
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+                <Route path="HubspotAuth/HubspotConnect" element={<HubspotConnect />} />
+
 
         {/* 404 Page */}
         <Route path="/404" element={<NotFound />} />
